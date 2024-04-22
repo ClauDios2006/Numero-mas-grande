@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p#resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Comparador de números</h1>
+    <label for="num1">Ingrese el primer número:</label>
+    <input type="number" id="num1">
+    <label for="num2">Ingrese el segundo número:</label>
+    <input type="number" id="num2">
+    <button onclick="compararNumeros()">Comparar</button>
+    <p id="resultado"></p>
+  </div>
+  <script>
+    function compararNumeros() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("resultado").innerText = "Por favor, ingrese números válidos.";
+      } else if (num1 === num2) {
+        document.getElementById("resultado").innerText = "Los números son iguales.";
+      } else if (num1 > num2) {
+        document.getElementById("resultado").innerText = "El primer número es mayor que el segundo.";
+      } else {
+        document.getElementById("resultado").innerText = "El segundo número es mayor que el primero.";
+      }
+    }
+  </script>
+</body>
+</html>
